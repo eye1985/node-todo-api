@@ -1,3 +1,3 @@
 #TODO api
 
-test
+Personal project for experimenting with node-rest-api.
