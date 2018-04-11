@@ -5,6 +5,8 @@ const jwt = require('jsonwebtoken');
 
 const userOneId = new ObjectID();
 const userTwoId = new ObjectID();
+const JWT_SECRET = process.env.JWT_SECRET.toString();
+
 const users = [
     {
         _id: userOneId,
@@ -12,7 +14,7 @@ const users = [
         password : 'userOnePass',
         tokens : [{
                 access: 'auth',
-                token: jwt.sign({_id:userOneId, access:'auth'}, 'secret').toString()
+                token: jwt.sign({_id:userOneId, access:'auth'}, JWT_SECRET).toString()
         }]
     },
     {
@@ -21,7 +23,7 @@ const users = [
         password:'userTwoPass',
         tokens : [{
             access: 'auth',
-            token: jwt.sign({_id:userTwoId, access:'auth'}, 'secret').toString()
+            token: jwt.sign({_id:userTwoId, access:'auth'}, JWT_SECRET).toString()
         }]
     }
 ];
